@@ -1,6 +1,7 @@
 ﻿using Checkout.ApiServices.Cards;
 using Checkout.ApiServices.Charges;
 using Checkout.ApiServices.Customers;
+using Checkout.ApiServices.Drinks;
 using Checkout.ApiServices.Lookups;
 using Checkout.ApiServices.Reporting;
 using Checkout.ApiServices.RecurringPayments;
@@ -18,7 +19,9 @@ namespace Checkout
         private ReportingService _reportingService;
         private LookupsService _lookupsService;
         private RecurringPaymentsService _recurringPaymentsService;
+        private DrinkService _drinkService;
 
+        public DrinkService DrinkService => _drinkService ?? (_drinkService = new DrinkService());
         public ChargeService ChargeService { get { return _chargeService ?? (_chargeService = new ChargeService()); } }
         public CardService CardService { get { return _cardService ?? (_cardService = new CardService()); } }
         public CustomerService CustomerService { get { return _customerService ?? (_customerService = new CustomerService()); } }
@@ -37,34 +40,27 @@ namespace Checkout
             ContentAdaptor.Setup();
         }
 
-        public APIClient(string secretKey, Environment env, bool debugMode, int connectTimeout)
-            : this(secretKey, env, debugMode)
+        public APIClient(Environment env, bool debugMode, int connectTimeout)
+            : this(env, debugMode)
         {
             AppSettings.RequestTimeout = connectTimeout;
         }
 
-        public APIClient(string secretKey, Environment env, bool debugMode)
-            : this(secretKey, env)
+        public APIClient(Environment env, bool debugMode)
+            : this(env)
         {
             AppSettings.DebugMode = debugMode;
         }
 
-        public APIClient(string secretKey, Environment env)
+        public APIClient(Environment env)
         {
-            AppSettings.SecretKey = secretKey;
             AppSettings.Environment = env;
             ContentAdaptor.Setup();
         }
 
-        public APIClient(string secretKey, bool debugMode)
-            : this(secretKey)
+        public APIClient(bool debugMode) : this()
         {
             AppSettings.DebugMode = debugMode;
-        }
-
-        public APIClient(string secretKey):this()
-        {
-            AppSettings.SecretKey = secretKey;
         }
     }
 }
