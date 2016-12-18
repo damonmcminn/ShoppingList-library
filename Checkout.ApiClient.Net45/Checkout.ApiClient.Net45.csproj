@@ -85,6 +85,12 @@
     <Compile Include="ApiServices\Customers\ResponseModels\CustomerList.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ApiServices\Drinks\DrinkService.cs" />
+    <Compile Include="ApiServices\Drinks\RequestModels\BaseDrink.cs" />
+    <Compile Include="ApiServices\Drinks\RequestModels\DrinkCreate.cs" />
+    <Compile Include="ApiServices\Drinks\RequestModels\DrinkUpdate.cs" />
+    <Compile Include="ApiServices\Drinks\ResponseModels\Drink.cs" />
+    <Compile Include="ApiServices\Drinks\ResponseModels\DrinkList.cs" />
     <Compile Include="ApiServices\Lookups\LookupsService.cs" />
     <Compile Include="ApiServices\Lookups\ResponseModels\CountryInfo.cs" />
     <Compile Include="ApiServices\Lookups\ResponseModels\LocalPaymentData.cs" />
@@ -177,7 +183,9 @@
     <Compile Include="ApiServices\SharedModels\HttpResponse.cs" />
     <Compile Include="ApiServices\SharedModels\ResponseError.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ApiServices\Drinks\RequestModels" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
