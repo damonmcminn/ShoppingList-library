@@ -17,10 +17,10 @@ namespace Checkout.ApiServices.Drinks
             return new ApiHttpClient().GetRequest<Drink>(getDrinkUri);
         }
 
-        public HttpResponse<OkResponse> UpdateDrink(string drinkId, DrinkUpdate requestModel)
+        public HttpResponse<Drink> UpdateDrink(string drinkId, DrinkUpdate requestModel)
         {
             var updateDrinkUri = string.Format(ApiUrls.Drink, drinkId);
-            return new ApiHttpClient().PutRequest<OkResponse>(updateDrinkUri, requestModel);
+            return new ApiHttpClient().PutRequest<Drink>(updateDrinkUri, requestModel);
         }
 
         public HttpResponse<OkResponse> DeleteDrink(string drinkId)
