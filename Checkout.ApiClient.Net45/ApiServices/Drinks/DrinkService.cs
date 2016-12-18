@@ -6,7 +6,7 @@ namespace Checkout.ApiServices.Drinks
 {
     public class DrinkService
     {
-        public HttpResponse<Drink> CreateDrink(string name, DrinkCreate requestModel)
+        public HttpResponse<Drink> CreateDrink(DrinkCreate requestModel)
         {
             return new ApiHttpClient().PostRequest<Drink>(ApiUrls.Drinks, requestModel);
         }
