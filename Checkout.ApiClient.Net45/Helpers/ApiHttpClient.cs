@@ -79,15 +79,13 @@ namespace Checkout
         /// <summary>
         /// Submits a get request to the given web address with default content type e.g. text/plain
         /// </summary>
-        public HttpResponse<T> GetRequest<T>(string requestUri,string authenticationKey)
+        public HttpResponse<T> GetRequest<T>(string requestUri)
         {
             var httpRequestMsg = new HttpRequestMessage();
 
             httpRequestMsg.Method = HttpMethod.Get;
             httpRequestMsg.RequestUri = new Uri(requestUri);
             httpRequestMsg.Headers.Add("Accept", AppSettings.DefaultContentType);
-
-            SetHttpRequestHeader("Authorization", authenticationKey);
 
             if (AppSettings.DebugMode)
             {
@@ -100,15 +98,13 @@ namespace Checkout
         /// <summary>
         /// Submits a post request to the given web address
         /// </summary>
-        public HttpResponse<T> PostRequest<T>(string requestUri,string authenticationKey, object requestPayload = null)
+        public HttpResponse<T> PostRequest<T>(string requestUri, object requestPayload = null)
         {
             var httpRequestMsg = new HttpRequestMessage(HttpMethod.Post, requestUri);
             var requestPayloadAsString = GetObjectAsString(requestPayload);
 
             httpRequestMsg.Content = new StringContent(requestPayloadAsString, Encoding.UTF8, AppSettings.DefaultContentType);
             httpRequestMsg.Headers.Add("Accept", AppSettings.DefaultContentType);
-            
-            SetHttpRequestHeader("Authorization", authenticationKey);
             
             if (AppSettings.DebugMode)
             {
@@ -122,15 +118,13 @@ namespace Checkout
         /// <summary>
         /// Submits a put request to the given web address
         /// </summary>
-        public HttpResponse<T> PutRequest<T>(string requestUri, string authenticationKey, object requestPayload = null)
+        public HttpResponse<T> PutRequest<T>(string requestUri, object requestPayload = null)
         {
             var httpRequestMsg = new HttpRequestMessage(HttpMethod.Put, requestUri);
             var requestPayloadAsString = GetObjectAsString(requestPayload);
 
             httpRequestMsg.Content = new StringContent(requestPayloadAsString, Encoding.UTF8, AppSettings.DefaultContentType);
             httpRequestMsg.Headers.Add("Accept", AppSettings.DefaultContentType);
-
-            SetHttpRequestHeader("Authorization", authenticationKey);
 
             if (AppSettings.DebugMode)
             {
@@ -144,15 +138,13 @@ namespace Checkout
         /// <summary>
         /// Submits a delete request to the given web address
         /// </summary>
-        public HttpResponse<T> DeleteRequest<T>(string requestUri, string authenticationKey)
+        public HttpResponse<T> DeleteRequest<T>(string requestUri)
         {
             var httpRequestMsg = new HttpRequestMessage();
 
             httpRequestMsg.Method = HttpMethod.Delete;
             httpRequestMsg.RequestUri = new Uri(requestUri);
             httpRequestMsg.Headers.Add("Accept", AppSettings.DefaultContentType);
-
-            SetHttpRequestHeader("Authorization", authenticationKey);
 
             if (AppSettings.DebugMode)
             {
