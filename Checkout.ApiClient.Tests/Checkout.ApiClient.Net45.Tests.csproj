@@ -70,25 +70,13 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BaseServiceTests.cs" />
-    <Compile Include="CardService\CardServiceTests.cs" />
-    <Compile Include="ChargeService\ChargeServiceTests.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CustomerService\CustomerServiceTests.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="DrinkService\DrinkServiceTests.cs" />
     <Compile Include="ErrorResponse\ErrorResponseTests.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="LookupsService\LookupsServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportingService\ReportingServiceTests.cs" />
-    <Compile Include="RecurringPaymentsService\RecurringPaymentsServiceTests.cs" />
-    <Compile Include="TokenService\TokenServiceTests.cs" />
-    <Compile Include="Utils\CardProviders.cs" />
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\RandomData.cs" />
-    <Compile Include="TestHelper.cs" />
     <Compile Include="Utils\ReflectionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -103,6 +91,9 @@
       <Project>{1c69b996-8ab6-4ba2-a5ae-58a350cbb34b}</Project>
       <Name>Checkout.ApiClient.Net45</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utils" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
