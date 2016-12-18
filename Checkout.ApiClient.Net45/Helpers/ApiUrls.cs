@@ -70,6 +70,12 @@
             _localPaymentChargesApiUri = null;
         }
 
+        public static string Drinks
+            => _cardsApiUri ?? (_cardsApiUri = string.Concat(AppSettings.BaseApiUri, "/drinks"));
+
+        public static string Drink
+            => _cardApiUri ?? (_cardApiUri = string.Concat(AppSettings.BaseApiUri, "/drinks/{0}"));
+
         public static string Charges
             => _chargesApiUri ?? (_chargesApiUri = string.Concat(AppSettings.BaseApiUri, "/charges"));
 
