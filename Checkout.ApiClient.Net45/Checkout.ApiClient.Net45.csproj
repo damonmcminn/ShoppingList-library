@@ -52,71 +52,13 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApiServices\Cards\CardService.cs" />
-    <Compile Include="ApiServices\Charges\ChargeService.cs" />
-    <Compile Include="ApiServices\Charges\RequestModels\BaseChargeInfo.cs" />
-    <Compile Include="ApiServices\Charges\RequestModels\ChargeVoid.cs" />
-    <Compile Include="ApiServices\Charges\RequestModels\DefaultCardCharge.cs" />
-    <Compile Include="ApiServices\Charges\RequestModels\LocalPaymentCreate.cs" />
-    <Compile Include="ApiServices\Charges\RequestModels\LocalPaymentCharge.cs" />
-    <Compile Include="ApiServices\Charges\ResponseModels\Capture.cs" />
-    <Compile Include="ApiServices\Charges\ResponseModels\ChargeHistory.cs" />
-    <Compile Include="ApiServices\Charges\ResponseModels\LocalPayment.cs" />
-    <Compile Include="ApiServices\Charges\ResponseModels\Void.cs" />
-    <Compile Include="ApiServices\Customers\CustomerService.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ApiServices\Customers\RequestModels\BaseCustomer.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ApiServices\Customers\RequestModels\CustomerCreate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ApiServices\Customers\RequestModels\CustomerGetList.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ApiServices\Customers\RequestModels\CustomerUpdate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ApiServices\Customers\ResponseModels\Customer.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ApiServices\Customers\ResponseModels\CustomerCard.cs" />
-    <Compile Include="ApiServices\Customers\ResponseModels\CustomerList.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="ApiServices\Drinks\DrinkService.cs" />
     <Compile Include="ApiServices\Drinks\RequestModels\BaseDrink.cs" />
     <Compile Include="ApiServices\Drinks\RequestModels\DrinkCreate.cs" />
     <Compile Include="ApiServices\Drinks\RequestModels\DrinkUpdate.cs" />
     <Compile Include="ApiServices\Drinks\ResponseModels\Drink.cs" />
     <Compile Include="ApiServices\Drinks\ResponseModels\DrinkList.cs" />
-    <Compile Include="ApiServices\Lookups\LookupsService.cs" />
-    <Compile Include="ApiServices\Lookups\ResponseModels\CountryInfo.cs" />
-    <Compile Include="ApiServices\Lookups\ResponseModels\LocalPaymentData.cs" />
-    <Compile Include="ApiServices\Reporting\ReportingService.cs" />
-    <Compile Include="ApiServices\Reporting\ResponseModels\Chargeback.cs" />
-    <Compile Include="ApiServices\Reporting\ResponseModels\QueryChargebackResponse.cs" />
-    <Compile Include="ApiServices\Reporting\ResponseModels\QueryResponse.cs" />
     <Compile Include="ApiServices\SharedModels\Filter.cs" />
-    <Compile Include="ApiServices\Reporting\RequestModels\QueryRequest.cs" />
-    <Compile Include="ApiServices\Reporting\ResponseModels\Transaction.cs" />
-    <Compile Include="ApiServices\Reporting\ResponseModels\QueryTransactionResponse.cs" />
-    <Compile Include="ApiServices\RecurringPayments\RecurringPaymentsService.cs" />
-    <Compile Include="ApiServices\RecurringPayments\RequestModels\CustomerPaymentPlan.cs" />
-    <Compile Include="ApiServices\RecurringPayments\RequestModels\CustomerPaymentPlanCreate.cs" />
-    <Compile Include="ApiServices\RecurringPayments\RequestModels\CustomerPaymentPlanUpdate.cs" />
-    <Compile Include="ApiServices\RecurringPayments\RequestModels\PaymentPlan.cs" />
-    <Compile Include="ApiServices\RecurringPayments\RequestModels\PaymentPlanCreate.cs" />
-    <Compile Include="ApiServices\RecurringPayments\RequestModels\RecurringPlanStatus.cs" />
-    <Compile Include="ApiServices\RecurringPayments\RequestModels\SinglePaymentPlanCreateRequest.cs" />
-    <Compile Include="ApiServices\RecurringPayments\RequestModels\PaymentPlanUpdate.cs" />
-    <Compile Include="ApiServices\RecurringPayments\RequestModels\QueryCustomerPaymentPlanRequest.cs" />
-    <Compile Include="ApiServices\RecurringPayments\RequestModels\QueryPaymentPlanRequest.cs" />
-    <Compile Include="ApiServices\RecurringPayments\RequestModels\BaseRecurringPlan.cs" />
-    <Compile Include="ApiServices\RecurringPayments\ResponseModels\SinglePaymentPlanCreateResponse.cs" />
-    <Compile Include="ApiServices\RecurringPayments\ResponseModels\QueryCustomerPaymentPlanResponse.cs" />
-    <Compile Include="ApiServices\RecurringPayments\ResponseModels\QueryPaymentPlanResponse.cs" />
     <Compile Include="ApiServices\SharedModels\BasePagination.cs" />
     <Compile Include="ApiServices\SharedModels\BillingDescriptor.cs" />
     <Compile Include="ApiServices\SharedModels\IQueryResponse.cs" />
@@ -124,41 +66,13 @@
     <Compile Include="ApiServices\SharedModels\Phone.cs" />
     <Compile Include="ApiServices\SharedModels\SortColumn.cs" />
     <Compile Include="ApiServices\SharedModels\SortOrder.cs" />
-    <Compile Include="ApiServices\Tokens\RequestModels\VisaCheckoutTokenCreate.cs" />
-    <Compile Include="ApiServices\Tokens\ResponseModels\CardTokenResponse.cs" />
-    <Compile Include="ApiServices\Tokens\RequestModels\PaymentTokenUpdate.cs" />
-    <Compile Include="ApiServices\Tokens\RequestModels\PaymentTokenCreate.cs" />
-    <Compile Include="ApiServices\Tokens\ResponseModels\PaymentTokenCreate.cs" />
-    <Compile Include="ApiServices\Tokens\TokenService.cs" />
     <Compile Include="Helpers\ApiHttpClient.cs" />
     <Compile Include="Helpers\AppSettings.cs" />
     <Compile Include="APIClient.cs" />
     <Compile Include="Helpers\Environment.cs" />
     <Compile Include="Utilities\ExceptionHelper.cs" />
     <Compile Include="Helpers\ApiUrls.cs" />
-    <Compile Include="ApiServices\Cards\RequestModels\BaseCard.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ApiServices\Cards\RequestModels\CardUpdate.cs" />
-    <Compile Include="ApiServices\Cards\RequestModels\CardCreate.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ApiServices\Cards\ResponseModels\Card.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ApiServices\Cards\ResponseModels\CardList.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="ApiServices\Charges\ResponseModels\Charge.cs" />
-    <Compile Include="ApiServices\Charges\ResponseModels\Refund.cs" />
-    <Compile Include="ApiServices\Charges\RequestModels\ChargeCapture.cs" />
-    <Compile Include="ApiServices\Charges\RequestModels\CardCharge.cs" />
-    <Compile Include="ApiServices\Charges\RequestModels\CardIdCharge.cs" />
-    <Compile Include="ApiServices\Charges\RequestModels\CardTokenCharge.cs" />
-    <Compile Include="ApiServices\Charges\RequestModels\ChargeRefund.cs" />
-    <Compile Include="ApiServices\Charges\RequestModels\ChargeUpdate.cs" />
     <Compile Include="ApiServices\SharedModels\Product.cs" />
-    <Compile Include="ApiServices\Charges\RequestModels\BaseCharge.cs" />
     <Compile Include="ApiServices\SharedModels\Address.cs" />
     <Compile Include="ApiServices\SharedModels\OkResponse.cs">
       <SubType>Code</SubType>
@@ -184,6 +98,7 @@
     <Compile Include="ApiServices\SharedModels\ResponseError.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ApiServices" />
     <Folder Include="ApiServices\Drinks\RequestModels" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
