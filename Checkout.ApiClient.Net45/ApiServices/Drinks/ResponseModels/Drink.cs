@@ -2,5 +2,8 @@
 
 namespace Checkout.ApiServices.Drinks.ResponseModels
 {
-    public class Drink : BaseDrink { }
+    public class Drink : BaseDrink
+    {
+        public string Id { get; set; }
+    }
 }
