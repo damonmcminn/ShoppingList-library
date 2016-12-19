@@ -57,7 +57,7 @@ namespace Tests
             var response = CheckoutClient.DrinkService.DeleteDrink(_pepsiId);
 
             // DeleteDrink is successful, but response is null for some reason...
-            // response.HttpStatusCode.Should().Be(HttpStatusCode.OK);
+            response.HttpStatusCode.Should().Be(HttpStatusCode.OK);
         }
 
         [Test]

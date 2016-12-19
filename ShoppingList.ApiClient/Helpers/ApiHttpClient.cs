@@ -173,7 +173,7 @@ namespace ShoppingList
 
                 var responseContent = responseMessage.Content.ReadAsByteArrayAsync().Result;
 
-                if (responseContent != null && responseContent.Length > 0)
+                if (responseContent != null)
                 {
                     responseAsString = Encoding.UTF8.GetString(responseContent);
 
