@@ -75,7 +75,7 @@ namespace ShoppingList
             return null;
         }
 
-       
+
         /// <summary>
         /// Submits a get request to the given web address with default content type e.g. text/plain
         /// </summary>
@@ -105,7 +105,7 @@ namespace ShoppingList
 
             httpRequestMsg.Content = new StringContent(requestPayloadAsString, Encoding.UTF8, AppSettings.DefaultContentType);
             httpRequestMsg.Headers.Add("Accept", AppSettings.DefaultContentType);
-            
+
             if (AppSettings.DebugMode)
             {
                 Console.WriteLine(string.Format("\n\n** Request ** Post {0}", requestUri));
@@ -151,7 +151,7 @@ namespace ShoppingList
                 Console.WriteLine(string.Format("\n\n** Request ** Delete {0}", requestUri));
             }
 
-            return SendRequest<T>(httpRequestMsg).Result; 
+            return SendRequest<T>(httpRequestMsg).Result;
         }
 
         /// <summary>
@@ -164,15 +164,12 @@ namespace ShoppingList
             Task<HttpResponse<T>> response = null;
             HttpResponseMessage responseMessage = null;
             string responseAsString = null;
-            string responseCode = null;
 
             try
             {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-                responseMessage = httpClient.SendAsync(request).Result; 
-               
-                responseCode = responseMessage.StatusCode.ToString();
+                responseMessage = httpClient.SendAsync(request).Result;
 
                 var responseContent = responseMessage.Content.ReadAsByteArrayAsync().Result;
 
@@ -192,11 +189,9 @@ namespace ShoppingList
             {
                 if (AppSettings.DebugMode)
                 {
-                    Console.WriteLine(string.Format(@"\n** Exception - HttpStatuscode:\n{0}**\n\n 
+                    Console.WriteLine(string.Format(@"\n** Exception - HttpStatuscode:\n{0}**\n\n
                         ** ResponseString {1}\n ** Exception Messages{2}\n ", (responseMessage != null ? responseMessage.StatusCode.ToString() : string.Empty), responseAsString, ExceptionHelper.FlattenExceptionMessages(ex)));
                 }
-
-                responseCode = "Exception" + ex.Message;
 
                 throw;
             }
