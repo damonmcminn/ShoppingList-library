@@ -10,13 +10,10 @@ namespace Tests
         [Test]
         public void GetDrinkList_FailsWithNotFound_IfNameParameterNotFound()
         {
-            // this fails because response is null
-            // strongly suspect because /drinks?name={name} returns empty body in case of 404
-//            var response = CheckoutClient.DrinkService.GetDrink("coke");
-//
-//            response.Should().NotBeNull();
-//            response.HttpStatusCode.Should().NotBe(HttpStatusCode.OK);
-//            response.HasError.Should().BeTrue();
+           var response = CheckoutClient.DrinkService.GetDrinkList("coke");
+
+           response.Should().NotBeNull();
+           response.HttpStatusCode.Should().Be(HttpStatusCode.NotFound);
         }
     }
 }

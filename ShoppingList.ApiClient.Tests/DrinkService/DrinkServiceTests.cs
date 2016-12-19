@@ -1,7 +1,7 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using FluentAssertions;
 using NUnit.Framework;
+using System.Linq;
 
 using ShoppingList.ApiServices.Drinks.RequestModels;
 using ShoppingList.ApiServices.Drinks.ResponseModels;
@@ -12,6 +12,17 @@ namespace Tests
     {
         private string _pepsiId;
         private string _pepsi = "Pepsi";
+        private string[] _extraDrinks = { "Dr Pepper", "Fanta", "San Pellegrino", "Coffee" };
+        private DrinkList _drinks;
+
+        [TestFixtureTearDownAttribute]
+        public void CleanUp()
+        {
+            foreach (var drink in _drinks)
+            {
+                CheckoutClient.DrinkService.DeleteDrink(drink.Id);
+            }
+        }
 
         [Test]
         public void CreateDrink()
@@ -61,14 +72,21 @@ namespace Tests
         }
 
         [Test]
-        public void GetDrinkList()
+        public void Z_GetDrinkList()
         {
-            // Newtonsoft.Json.JsonSerializationException cannot deserialize an empty array
-            // will need to reimplement the returned JSON structure e.g. an object containing a data field that itself is an empty array
-//            var response = CheckoutClient.DrinkService.GetDrinkList();
-//            response.HttpStatusCode.Should().Be(HttpStatusCode.OK);
-//            response.Model.Should().NotBeNull();
-//            response.Model.Count.Should().Be(1);
+            foreach (var name in _extraDrinks)
+            {
+                CheckoutClient.DrinkService.CreateDrink(new DrinkCreate() {Name = name});
+            }
+
+            var response = CheckoutClient.DrinkService.GetDrinkList();
+            response.HttpStatusCode.Should().Be(HttpStatusCode.OK);
+            response.Model.Should().NotBeNull();
+            response.Model.Count.Should().Be(4);
+            response.Model.Last().Name.Should().Be(_extraDrinks.Last());
+            response.Model.First().Name.Should().Be(_extraDrinks.First());
+
+            _drinks = response.Model;
         }
     }
 }
